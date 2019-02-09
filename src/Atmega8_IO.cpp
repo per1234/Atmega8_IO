@@ -177,19 +177,19 @@ int Cing::ReadLightSensor(int sensor,String mode)
 				if (sensor == 1)
 					{
 						int value;
-						value = digitalRead(LightSensor1);
+						value = map(digitalRead(LightSensor1),0,1,1,0);
 						return value;
 					}
 				else if (sensor == 2)
 					{
 						int value;
-						value = digitalRead(LightSensor2);
+						value = map(digitalRead(LightSensor2),0,1,1,0);
 						return value;
 					}
 				else
 					{
 						int value;
-						value = digitalRead(LightSensor1);
+						value = map(digitalRead(LightSensor1),0,1,1,0);
 						return value;
 					}
 			}
