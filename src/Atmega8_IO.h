@@ -24,6 +24,7 @@ class Cing
     void InitLed();
   	void SetLedColor(int led = 1,int red = 100,int green = 100,int blue = 100);
   	void LedShow();
+    int ReadShineArray(int sensor=1);
 // local variables
   private:
 };
