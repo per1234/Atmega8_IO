@@ -21,8 +21,7 @@ class Cing
     bool ReadButtonExternal();
     int ReadPotentiometer();
     float ReadTempSensor(int sensor = 0);
-    int ReadIRSensor();
-    void LedStart();
+    void InitLed();
   	void SetLedColor(int led = 1,int red = 100,int green = 100,int blue = 100);
   	void LedShow();
 // local variables
