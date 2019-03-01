@@ -51,6 +51,27 @@ Reads the value from external button, either `0` or `1`.
 
 ---
 
+### Cing.ReadButton()
+
+[Build-in sensor]
+
+
+#### Description
+
+Reads the value from button, either `0` or `1`. When pressed changes value of `Cing.ReadShineArray(1)` to `100`.
+
+
+#### Syntax
+
+`Cing.ReadButton()`
+
+
+#### Returns
+
+`0` if button is not pressed or `1` if button is pressed.
+
+---
+
 ### Cing.ReadPotentiometerExternal()
 [Sensor]
 
@@ -61,6 +82,22 @@ Reads the value from external potentiometer.
 #### Syntax
 
 `Cing.ReadPotentiometerExternal()`
+
+#### Returns
+From `0` or `100` depending on potentiometer position.
+
+---
+
+### Cing.ReadPotentiometer()
+[Build-in sensor]
+
+#### Description
+
+Reads the value from potentiometer.
+
+#### Syntax
+
+`Cing.ReadPotentiometer()`
 
 #### Returns
 From `0` or `100` depending on potentiometer position.
@@ -116,24 +153,27 @@ From `0` or `100` depending on ambient light.
 
 ---
 
-### Cing.ReadTempSensor()
+### Cing.ReadShineArray()
 
-[Sensor]
+[Build-in sensor]
 
 
 #### Description
 
-Reads the value from external temperature sensor.
+Reads the value from external shine sensor.
 
 
 #### Syntax
 
-`Cing.ReadTempSensor()`
+`Cing.ReadShineArray(sensor)`
 
+#### Parameters
+
+sensor: `1` or `2` used for selection of sensor.
 
 #### Returns
 
-Temperature in °C  from `-55` to `+125`.
+From `0` or `100` depending on ambient light.
 
 ---
 
@@ -144,7 +184,7 @@ Temperature in °C  from `-55` to `+125`.
 
 #### Description
 
-Prepares the data pin for WS2812 output. This command should be used in `void setup(){}`
+Prepares the data pin for WS2812 output. This command should be used in `void setup(){}`.
 
 #### Syntax
 
@@ -165,10 +205,13 @@ Sets color of WS2812.
 
 `Cing.SetLedColor(led,red,green,blue)`
 
+#### Parameters
+
 led: Led number which you want to set color. Firt led starts at index `1`.
 red: Red value in % from `0` to `100`.
 green: Green value in % from `0` to `100`.
 blue: Blue value in % from `0` to `100`.
+
 ---
 
 ### Cing.ShowLed()
