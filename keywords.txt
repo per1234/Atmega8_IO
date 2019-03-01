@@ -12,7 +12,7 @@ Atmega8_IO	                   KEYWORD1
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-Robot                          KEYWORD2
+Cing                           KEYWORD2
 RunMotor					             KEYWORD2
 ReadLightSensor				         KEYWORD2
 ReadUltrasonicSensor		       KEYWORD2
@@ -24,7 +24,7 @@ ReadTempSensor			           KEYWORD2
 InitLed  		                   KEYWORD2
 SetLedColor		                 KEYWORD2
 LedShow			                   KEYWORD2
-
+ReadShineArray                 KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
