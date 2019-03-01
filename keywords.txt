@@ -21,7 +21,7 @@ ReadButton			               KEYWORD2
 ReadButtonExternal       	     KEYWORD2
 ReadPotentiometer       	     KEYWORD2
 ReadTempSensor			           KEYWORD2
-LedStart		                   KEYWORD2
+InitLed  		                   KEYWORD2
 SetLedColor		                 KEYWORD2
 LedShow			                   KEYWORD2
 
