@@ -24,9 +24,9 @@ Controls motor movement.
 
 motor: `"A"`, `"B"`, `"AB"`
 
-state: `0` or `1` or `-1` if digital mode is used and `-100` to `100` if analog mode is used. Positive values are used for forward, negative values are used for reverse.
+state: `0` or `1` or `-1` if digital mode is used. Positive values are used for forward, negative values are used for reverse.
 
-mode: `"digital"` or `"analog"`
+mode: `"digital"`
 
 ---
 
@@ -63,7 +63,7 @@ Reads the value from external potentiometer.
 `Cing.ReadPotentiometerExternal()`
 
 #### Returns
-From `0` to `100` depending on potentiometer position.
+From `0` or `100` depending on potentiometer position.
 
 ---
 
@@ -112,7 +112,7 @@ Reads the value from external shine sensor.
 
 #### Returns
 
-From `0` to `100` depending on ambient light.
+From `0` or `100` depending on ambient light.
 
 ---
 
