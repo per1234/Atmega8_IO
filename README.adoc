@@ -1,11 +1,166 @@
-= Atmega8_IO Library for robot Cing =
+# Atmega8_IO Library for robot Cing #
 
 This library allows robot Cing to be programmed easily.
 
 For more information about this library please visit us at
 http://robotcing.wz.sk
 
-== License ==
+---
+
+## Attiny Libraries Functions
+
+### Cing.RunMotor()
+[Motor]
+
+#### Description
+
+Controls motor movement.
+
+#### Syntax
+
+`Cing.RunMotor(motor,state,mode)`
+
+#### Parameters
+
+motor: `"A"`, `"B"`, `"AB"`
+
+state: `0` or `1` or `-1` if digital mode is used and `-100` to `100` if analog mode is used. Positive values are used for forward, negative values are used for reverse.
+
+mode: `"digital"` or `"analog"`
+
+---
+
+### Cing.ReadButtonExternal()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from external button, either `0` or `1`.
+
+
+#### Syntax
+
+`Cing.ReadButtonExternal()`
+
+
+#### Returns
+
+`0` if button is not pressed or `1` if button is pressed.
+
+---
+
+### Cing.ReadPotentiometerExternal()
+[Sensor]
+
+#### Description
+
+Reads the value from external potentiometer.
+
+#### Syntax
+
+`Cing.ReadPotentiometerExternal()`
+
+#### Returns
+From `0` to `100` depending on potentiometer position.
+
+---
+
+### Cing.ReadLightSensor()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from light sensor.
+
+
+#### Syntax
+
+`Cing.ReadLightSensor(sensor,mode)`
+
+
+#### Parameters
+
+sensor: `1` or `2` used for selection of sensor
+
+mode: `"digital"` or `"analog"`
+
+
+#### Returns
+
+From `0` to `100` in analog mode and either `0` or `1` in digital mode.
+
+---
+
+### Cing.ReadShineSensor()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from external shine sensor.
+
+
+#### Syntax
+
+`Cing.ReadShineSensor()`
+
+
+#### Returns
+
+From `0` to `100` depending on ambient light.
+
+---
+
+### Cing.ReadTempSensor()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from external temperature sensor.
+
+
+#### Syntax
+
+`Cing.ReadTempSensor()`
+
+
+#### Returns
+
+Temperature in °C  from `-55` to `+125`.
+
+---
+
+## In progress
+
+### Cing.UltrasonicSensor()
+
+[Sensor]
+
+
+#### Description
+
+Reads the value from external ultrasonic sensor.
+
+
+#### Syntax
+
+`Cing.UltrasonicSensor()`
+
+
+#### Returns
+
+Distance in mm from `0` to `400`.
+
+---
+
+## License ##
 
 Copyright © 2019 RobotCing Team. All right reserved.
 
