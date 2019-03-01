@@ -282,19 +282,9 @@ float Cing::ReadTempSensor(int sensor)
 		return temp;
 	}
 //--------------------------------------------
-//            IR
-//--------------------------------------------
-int Cing::ReadIRSensor()
-	{
-		#define IR_pin 4
-		int code;
-
-	}
-
-//--------------------------------------------
 //            LED WS2812
 //--------------------------------------------
-void Cing::LedStart()
+void Cing::InitLed()
 	{
 		pixels.begin();
 	}
