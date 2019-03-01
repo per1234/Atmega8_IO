@@ -218,29 +218,25 @@ int Cing::ReadUltrasonicSensor()
 //--------------------------------------------
 //             ShineSensors
 //--------------------------------------------
-int Cing::ReadShineSensor(int sensor)
-	{
+int Cing::ReadShineSensor(){
 		#define ShineSensor 13
-		#define LDR_1 A6
-		#define LDR_2 A7
 		pinMode(ShineSensor,INPUT);
-		int shine_value;
-		if(sensor == 0)
-			{
-				int shine_value = map(digitalRead(ShineSensor),0,1,0,100);
-				return shine_value;
-			}
-		else if(sensor == 1)
-			{
-				int shine_value = map(analogRead(LDR_1),0,1023,100,0);
-				return shine_value;
-			}
-		else if(sensor == 2)
-			{
-				shine_value = map(analogRead(LDR_2),0,1023,100,0);
-				return shine_value;
-			}
-	}
+		int shine_value = map(digitalRead(ShineSensor),0,1,0,100);
+		return shine_value;
+}
+//--------------------------------------------
+//                  Shine Array
+//--------------------------------------------
+int Cing::ReadShineArray(int sensor){
+  int value1 = map(analogRead(A6),0,1023,0,100);
+  int value2 = map(analogRead(A7),0,1023,0,100);
+  if(sensor == 1){
+    return value1;
+  }
+  else{
+    return value2;
+  }
+}
 //--------------------------------------------
 //               Button
 //--------------------------------------------
