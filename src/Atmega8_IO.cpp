@@ -12,7 +12,7 @@ Created by RobotCing Team
 //--------------------------------------------
 #include "Arduino.h"
 #include "Atmega8_IO.h"
-#include "Wire.h"
+#include <Wire.h>
 //--------------------------------------------
 Cing::Cing(){}
 //--------------------------------------------
@@ -214,33 +214,39 @@ uint8_t Cing::ReadUltrasonicSensor(String mode,int address)
 //--------------------------------------------
 //             ShineSensors
 //--------------------------------------------
-int Cing::ReadShineSensor(){
+int Cing::ReadShineSensor()
+	{
 		#define ShineSensor 13
 		pinMode(ShineSensor,INPUT);
-		int shine_value = map(digitalRead(ShineSensor),0,1,0,100);
+		int shine_value = map(digitalRead(ShineSensor),0,1,100,0);
 		return shine_value;
-}
-//--------------------------------------------
-//                  Shine Array
-//--------------------------------------------
-int Cing::ReadShineArray(int sensor){
-  int value1 = map(analogRead(A6),0,1023,0,100);
-  int value2 = map(analogRead(A7),0,1023,0,100);
-  if(sensor == 1){
-    return value1;
-  }
-  else{
-    return value2;
-  }
-}
+	}
+	//--------------------------------------------
+	//                  Shine Array
+	//--------------------------------------------
+	int Cing::ReadShineArray(int sensor){
+	  int value1 = map(analogRead(A0),0,1023,100,0);
+	  int value2 = map(analogRead(A7),0,1023,100,0);
+	  if(sensor == 1){
+	    return value1;
+	  }
+	  else{
+	    return value2;
+	  }
+	}
 //--------------------------------------------
 //               Button
 //--------------------------------------------
 bool Cing::ReadButton()
 	{
 		#define Button A6
-		pinMode(Button,INPUT);
-		bool button_value = digitalRead(Button);
+		bool button_value;
+		if(analogRead(Button)>1000){
+			button_value = 1;
+		}
+		else{
+			button_value = 0;
+		}
 		return button_value;
 	}
 //--------------------------------------------
