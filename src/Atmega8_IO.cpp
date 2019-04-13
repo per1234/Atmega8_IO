@@ -12,6 +12,7 @@ Created by RobotCing Team
 //--------------------------------------------
 #include "Arduino.h"
 #include "Atmega8_IO.h"
+#include "Wire.h"
 //--------------------------------------------
 Cing::Cing(){}
 //--------------------------------------------
@@ -198,22 +199,17 @@ int Cing::ReadLightSensor(int sensor,String mode)
 //           UltrasonicSensor
 //--------------------------------------------
 
-int Cing::ReadUltrasonicSensor()
+uint8_t Cing::ReadUltrasonicSensor(String mode,int address)
 	{
-		#define UltrasonicSensor 13
-		int duration;
-		int distance;
-		pinMode(UltrasonicSensor, OUTPUT);
-		digitalWrite(UltrasonicSensor, LOW);
-		delayMicroseconds(2);
-		digitalWrite(UltrasonicSensor, HIGH);
-		delayMicroseconds(10);
-		digitalWrite(UltrasonicSensor, LOW);
-		delayMicroseconds(10);
-		pinMode(UltrasonicSensor, INPUT);
-		duration = pulseIn(UltrasonicSensor, HIGH);
-		distance = duration/58.2;
-		return distance;
+		Wire.requestFrom(address, 4);
+	  uint8_t distance = Wire.read();
+	  uint8_t temperature = Wire.read();
+	  uint8_t humidity = Wire.read();
+	  uint8_t tdistance = Wire.read();
+		if(mode = "Distance"){return distance;}
+		else if(mode = "Temperature"){return temperature;}
+		else if(mode = "Humidity"){return humidity;}
+		else if(mode = "TDistance"){return tdistance;}
 	}
 //--------------------------------------------
 //             ShineSensors
@@ -271,9 +267,8 @@ int Cing::ReadPotentiometer()
 //--------------------------------------------
 float Cing::ReadTempSensor(int sensor)
 	{
-		float temp;
 		sensors.requestTemperatures();
-		temp = sensors.getTempCByIndex(sensor);
+		float temp = sensors.getTempCByIndex(sensor);
 		delay(50);
 		return temp;
 	}
@@ -295,7 +290,7 @@ void Cing::SetLedColor(int led,int red,int green,int blue)
 				pixels.setPixelColor(0,pixels.Color(map(green,0,100,0,255),map(red,0,100,0,255),map(blue,0,100,0,255)));
 			}
 	}
-void Cing::LedShow()
+void Cing::ShowLed()
 	{
 		pixels.show();
 	}

@@ -23,7 +23,7 @@ ReadPotentiometer       	     KEYWORD2
 ReadTempSensor			           KEYWORD2
 InitLed  		                   KEYWORD2
 SetLedColor		                 KEYWORD2
-LedShow			                   KEYWORD2
+ShowLed			                   KEYWORD2
 ReadShineArray                 KEYWORD2
 #######################################
 # Constants (LITERAL1)
